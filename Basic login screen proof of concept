@@ -1,0 +1,36 @@
+from tkinter import *
+import os
+
+root = Tk()
+
+username = Entry(root, width=50)
+username.pack()
+username.insert(0, "Username")
+
+password = Entry(root, width=50)
+password.pack()
+password.insert(0, "Password")
+
+status = "Denied"
+
+
+def click():
+    user = username.get()
+    passw = password.get()
+    if user == "Nick" and passw == "Nicko":
+        level.config(text="Authorized")
+    else:
+        level.config(text="Denied")
+
+
+level = Label(root, text=status)
+
+Prompt1 = Button(root, text="Input", command=click)
+
+level.pack()
+Prompt1.pack()
+
+if level.config(text="Authorized"):
+    os.system('python AnimeP2.py')
+
+root.mainloop()
